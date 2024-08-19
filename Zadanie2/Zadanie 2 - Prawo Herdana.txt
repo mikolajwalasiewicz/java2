@@ -1,0 +1,43 @@
+W językoznawstwie prawo Heardana (zwane również prawem Heapa) jest prawem empirycznym, które opisuje liczbę odrębnych słów w dokumencie (lub zestawie dokumentów) jako funkcję długości dokumentu (tzw. relacja type-token). Można to sformułować jako:
+
+					VR(n) = K*n^β.
+
+gdzie VR jest liczbą odrębnych słów w tekście instancji o rozmiarze n słów.
+
+K i β są tutaj pewnymi parametrami swobodnymi wyznaczonymi empirycznie. W przypadku korpusów z tekstem angielskim, zwykle K wynosi od 10 do 100, a β od 0,4 do 0,6.
+
+Problem do rozwiazania:
+
+Dane są cztery pliki z bajkami:
+
+
+		_brzydkie_kaczatko.txt
+ 
+		_dziecie_elfow.txt
+
+		_dzikie_labedzie.txt
+ 
+		_kwiat_paproci.txt
+ 
+
+pobrane ze stony: https://czasdzieci.pl/czytanki/dz,2-bajki_basnie,s,czytanki,zacz,0.html
+
+Napisać program w Javie, który po przekazaniu pliku tekstowego obliczy liczbę tokenów (wyrazów) i liczbę różnych tokenów (wyrazów).
+
+Uruchamiając teraz program dla dwóch pierwszych plików tekstowych z bajkami, np. _brzydkie_kaczatko.txt i _dziecie_elfow.txt obliczyć liczby VR(n1) i n1 dla pierwszego tekstu oraz VR(n2) i n2 dla drugiego.
+
+Następnie (wykorzystując, np. z serwisu https://www.wolframalpha.com/) rozwiązać układ równań
+
+		{VR(n1) = K*n1^β
+		{
+		{VR(n2) = K*n2^β
+		
+wyznaczając przybliżone wartości K i β.
+
+Przetestować teraz poprawność (jakość) wyznaczonych parametrów na podstawie kolejnego pliku, np.
+
+		_dzikie_labedzie.txt 
+
+tzn. z jednej strony obliczyć VR(n3) bepośrednio z programu, a z drugiej za pomocą wzoru na VR.
+
+Zauważ, że parametry K i β można poprawiać na kolejnych plikach tekstowych i testować na jeszcze kolejnych.

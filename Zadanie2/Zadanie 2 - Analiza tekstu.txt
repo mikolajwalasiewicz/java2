@@ -1,0 +1,153 @@
+Przez cale zadanie pracujemy na pliku: 
+
+		SuplatowiczStanislawZiemiaSlonychSkal.txt.
+
+
+Polecenie 1.
+============
+============
+Odczytaj wszystkie wyrazy z pliku (ciagi znakow oddzielone od siebie spacja), oczysc je 
+z niepotrzebnych znakow typu: , . : ; ? ! itp., ujednolic wielkosc liter (wszystkie male)
+ oraz zapisz je do 
+
+		ArrayList<String> listaWyrazow = new ArrayList<>(); 
+			
+Wypisz nastepnie wszystkie elementy listy na ekran i policz ile ich jest.
+ 
+ 
+Wskazowka:
+==========
+Do czyszczenia wyrazow mozesz skorzystac z metody replaceAll() klasy String. Do zamiany 
+na male znaki uzyj funkcji toLowerCase().
+
+Informacja:
+===========
+Kolekcja ArrayList<E> posiada zarowno wlasciwosci listy jak i tablicy. Przechowuje
+ elementy w odpowiedniej kolejnosci. Elementy moga sie powtarzac.
+  
+Przyklad uzycia:
+================
+
+		ArrayList<String> lista = new ArrayList<>();
+		lista.add("do");
+		lista.add("re");
+		lista.add("mi");
+		lista.add("fa");
+		lista.add("sol");
+		lista.add("la");
+		lista.add("si");
+		lista.add("do");
+		
+		for (String wyraz : lista) {
+			System.out.println(wyraz);
+		}
+
+
+Polecenie 2.
+============
+============
+Wypisz wszystkie rozne elementy z listaWyrazow na ekran oraz policz ile ich jest. 
+
+  
+Wskazowka:
+==========
+Mozesz przepisac wyrazy z listy listaWyrazow do zbioru
+
+			HashSet<String> zborWyrazow = new HashSet<>();
+			
+a wowczas takie same wyrazy beda pominiete.
+  
+Informacja:
+===========
+Kolekcja HashSet<E> posiada unikalne elementy (tak jak zbior w matematyce). Nie mozna jej 
+sortowac, mozna sprawdzic ilosc, mozna dodac element, nie mozna pobrac pojedynczego 
+elementu, nie ma konca poczatku, aby pobrac elementy trzeba zalozyc iterator lub np.
+ petla foreach.
+
+Przyklad uzycia:
+================
+
+		HashSet<String> zbior = new HashSet<String>();
+
+		lista.add("Ala");
+		lista.add("ma");
+		lista.add("kota");
+		lista.add("ma");
+		lista.add("Ala");
+		lista.add("kota");
+
+		for (String wyraz : zbior) {
+			System.out.println(wyraz);
+		}
+  
+Polecenie 3.
+============
+============ 
+Policz ile razy kazdy wyraz wystapil w liscie listaWyrazow.
+
+Wskazowka:
+==========
+Stworz najpierw slownik wyrazow (tablica asocjacyjna)
+
+		HashMap<String,Integer> slownikWyrazow = new HashMap<>();
+		
+i uzupelnij go parami (klucz,wartosc) typu (String,Integer), gdzie klucz czyli konkretny 
+wyraz pobierasz z listy listaWyrazow a pod wartosc wstawiasz liczbe wystapien tego 
+wyrazu na liscie listaWyrazow.
+
+Utworz teraz klase Slowo implementujaca interfejs Comparable z dwoma polami:
+
+		String wyraz;
+		int liczba;
+		
+Zaimplementuj nastepnie metode compareTo() z interfejsu Comparable tak, aby obiekty
+klasy Slowo potrafily porownywac sie ze soba (mniejszy-wiekszy-rowny) poprzez wartosc
+ pola liczba.
+ 
+Utworz nastepnie liste slow
+
+		ArrayList<Slowo> listaSlow = new ArrayList<>();
+
+i uzupelnij ja obiektami typu Slowo tworzonym z par (klucz,wartosc) pobieranych ze slownika
+slownikWyrazow.
+
+Teraz juz mozna posortowac liste stosujac
+
+		Collections.sort(listaSlow);
+
+
+Informacja:
+===========
+Kolekcja HashMap<K,V> to strktura typu (klucz,wartosc), gdzie po unikalnych kluczach
+ identyfikujemy podawane wartosci.
+
+Przyklad uzycia:
+================
+
+        HashMap<Character,String> slownik = new HashMap<>();
+        slownik.put('-',"minus");
+        slownik.put('0',"zero");
+        slownik.put('1',"jeden");
+        slownik.put('2',"dwa");
+        slownik.put('3',"trzy");
+        slownik.put('4',"cztery");
+        slownik.put('5',"piec");
+        slownik.put('6',"szesc");
+        slownik.put('7',"siedem");
+        slownik.put('8',"osiem");
+        slownik.put('9',"dziewiec");
+        double kwota = -234.32;
+        String kwotas = kwota+"";
+        String[] tab = kwotas.split("[.]");
+        for(char c : tab[0].toCharArray())
+            System.out.print("*"+slownik.get(c));
+        System.out.println("*"+tab[1]+"/100 zl");
+	
+Polecenie 4.
+============
+============
+a) Wypisz 20 najbardziej popularnych wyrazow ze slownika.
+b) Wypisz 20 najbardziej popularnych wyrazow ze slownika, po wykluczeniu z niego
+   wszystkich wyrazow z pliku stop_words.txt.
+   
+Dodatkowy plus za wykorzystanie w rozwiązaniu: generyków + kolekcji + wyrażeń regularnych + funcyjnego
